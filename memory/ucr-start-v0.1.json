@@ -1,0 +1,34 @@
+{
+  "schema": "seed-memory/0.1",
+  "version": 1,
+  "dataset": "fictional SEED-UCR pilot",
+  "state": {
+    "case_id": "UCR-PILOT-01",
+    "domain": "fictional Orchid Relay sensor lab",
+    "project": "Orchid Relay",
+    "task": "restore the investigation and propose a discriminating next test for the alarm fault",
+    "observations": [
+      {"id":"O1","text":"After fictional firmware 2.1, sensor R7 reports intermittent high alarms; sensor B2 does not."},
+      {"id":"O2","text":"A power cycle clears an alarm temporarily, but the alarm has later returned."},
+      {"id":"O3","text":"No controlled swap, calibration, or environmental test has been run."}
+    ],
+    "hypotheses": [
+      {"id":"H1","text":"R7 calibration drift"},
+      {"id":"H2","text":"firmware 2.1 retains a stale threshold value"},
+      {"id":"H3","text":"local environmental interference"}
+    ],
+    "prior_decision": "Keep H1-H3 open; current observations do not identify a cause.",
+    "completed_tests": [],
+    "open_work": "Choose one feasible test that separates at least two hypotheses; state predicted outcomes before observing results."
+  },
+  "evidence": {
+    "source": "synthetic fixture created for SEED-UCR; no user data",
+    "state_sha256": "dcb1dea69eaedcd8fb633f51512f44652d0a9dd517c5ec02edccee1f5c20d72c",
+    "accepted_growth": []
+  },
+  "write_policy": {
+    "candidate_delta_fields": ["observation", "evidence_ref", "validation", "confidence", "decision"],
+    "commit_authority": "human-controlled GitHub write",
+    "reject_unverified_claims": true
+  }
+}
