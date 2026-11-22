@@ -1,6 +1,6 @@
 {
   "schema": "seed-memory/0.1",
-  "version": 1,
+  "version": 2,
   "dataset": "fictional SEED-004 calibration",
   "state": {
     "project": "Lumen Pantry",
@@ -15,7 +15,31 @@
   "evidence": {
     "source": "synthetic fixture created for SEED-004; no user data",
     "state_sha256": "2bf586b8e193aae49127a05c6ff0c24857bc8f6f2f56d70bcd588545671b7ee5",
-    "accepted_growth": []
+    "accepted_growth": [
+      {
+        "growth_id": "SEED-004-GROWTH-001",
+        "observation": {
+          "task": "Lumen Pantry stock reconciliation on memory version 1",
+          "items": [
+            {"sku": "LUM-A", "unit": "box", "counted": 12, "target": 20, "reorder": 8, "surplus": 0},
+            {"sku": "LUM-B", "unit": "jar", "counted": 31, "target": 24, "reorder": 0, "surplus": 7},
+            {"sku": "LUM-C", "unit": "pack", "counted": 7, "target": 7, "reorder": 0, "surplus": 0}
+          ]
+        },
+        "evidence_ref": {
+          "repository": "xiklong-rgb/seed-004-memory",
+          "commit": "888d7aa4e9c1e6de8e55598fb300b81c4f2a8421",
+          "path": "memory/state.json",
+          "state_sha256": "2bf586b8e193aae49127a05c6ff0c24857bc8f6f2f56d70bcd588545671b7ee5"
+        },
+        "validation": {
+          "method": "independent recomputation from the pinned version-1 state and stored rule",
+          "checks": {"LUM-A_reorder_boxes": 8, "LUM-B_surplus_jars": 7, "LUM-B_reorder_jars": 0, "LUM-C_reorder_packs": 0, "LUM-C_surplus_packs": 0},
+          "passed": true
+        },
+        "confidence": 1.0
+      }
+    ]
   },
   "write_policy": {
     "candidate_deltas_must_include": ["observation", "evidence_ref", "validation", "confidence"],
